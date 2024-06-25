@@ -3,9 +3,9 @@ using System.Diagnostics;
 using Zahidul_s_Tech_Emporium.Models;
 using Zahidul_s_Tech_Emporium.Repository.IRepository;
 
-namespace Zahidul_s_Tech_Emporium.Areas.UserUi.Controllers
+namespace Zahidul_s_Tech_Emporium.Areas.Coustomer.Controllers
 {
-    [Area("UserUi")]
+    [Area("Coustomer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

@@ -62,7 +62,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="UserUi" asp-controller="Home" asp-action="Index">
+                <a class="navbar-brand" asp-area="Coustomer" asp-controller="Home" asp-action="Index">
                     <div class="logo">
                         <div class="arc"></div>
                         <div class="main"><span class="highlight">ZAHIDUL'S</span> <span class="highlight-star">TECH</span></div>
@@ -76,17 +76,27 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1" me-auto>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="UserUi" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="Coustomer" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="UserUi" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="Coustomer" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Content Management
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item">
+                                    <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
+                                </li>
+                               
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
-                        </li>
+                        
+                       
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -102,7 +112,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - Zahidul's Tech Emporium - <a asp-area="UserUi" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - Zahidul's Tech Emporium - <a asp-area="Coustomer" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
