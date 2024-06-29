@@ -9,7 +9,7 @@ using Zahidul_s_Tech_Emporium.Repository.IRepository;
 namespace Zahidul_s_Tech_Emporium.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize(Roles = SD.Role_Admin)]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CompanyController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

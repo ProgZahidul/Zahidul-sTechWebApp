@@ -12,8 +12,8 @@ using Zahidul_s_Tech_Emporium.DAL;
 namespace Zahidul_s_Tech_Emporium.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240626184410_addShoppingCard")]
-    partial class addShoppingCard
+    [Migration("20240628210334_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -257,19 +257,19 @@ namespace Zahidul_s_Tech_Emporium.Migrations
                         {
                             Id = 1,
                             DisplayOrder = 1,
-                            Name = "Action"
+                            Name = "Laptop"
                         },
                         new
                         {
                             Id = 2,
                             DisplayOrder = 2,
-                            Name = "SciFi"
+                            Name = "CCTV"
                         },
                         new
                         {
                             Id = 3,
                             DisplayOrder = 3,
-                            Name = "History"
+                            Name = "Camera"
                         });
                 });
 
@@ -318,16 +318,7 @@ namespace Zahidul_s_Tech_Emporium.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("ListPrice")
-                        .HasColumnType("float");
-
                     b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Price100")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Price50")
                         .HasColumnType("float");
 
                     b.Property<string>("Title")
@@ -339,6 +330,128 @@ namespace Zahidul_s_Tech_Emporium.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Brand = "Lenovo",
+                            CategoryId = 1,
+                            Description = "Lenovo Ideapad 3 14\" FHD PC Laptop, Intel Core i5-1035G1, 8GB RAM, 512GB SSD, Windows 10, Platinum Grey, 81WD00U9US",
+                            ImageUrl = "5fe718e2-864e-480f-9f4b-92f36a54eda3.webp",
+                            Price = 69000.0,
+                            Title = "Lenovo Ideapad"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Brand = "DELL",
+                            CategoryId = 1,
+                            Description = "Laptops are designed to be portable computers. They are smaller and lighter than desktops. The name connotes the user's ability to put the computer in their lap while they use it. ",
+                            ImageUrl = "533494b8-e34d-49b5-8f4e-f06a3912a369.jpeg",
+                            Price = 50000.0,
+                            Title = "Dell 5055"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Brand = "Lenovo",
+                            CategoryId = 1,
+                            Description = "Lenovo ThinkPad T14 Gen 3 | 2022 Model | 14” WUXGA Display Laptop Black ( i5-1235U, 16GB, 512GB SSD, Intel, W11P )",
+                            ImageUrl = "3d30b5dc-d3fc-4e85-8185-f8ff7d9472a8.webp",
+                            Price = 160000.0,
+                            Title = "Lenovo ThinkPad"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Brand = "Lenovo",
+                            CategoryId = 1,
+                            Description = "Laptops are designed to be portable computers. They are smaller and lighter than desktops. The name connotes the user's ability to put the computer in their lap while they use it. ",
+                            ImageUrl = "6f394ca7-4a38-4daa-a75f-2ca7a40c0bd4.webp",
+                            Price = 45000.0,
+                            Title = "Lenovo 4544"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Brand = "Lenovo",
+                            CategoryId = 1,
+                            Description = "Laptops are designed to be portable computers. They are smaller and lighter than desktops. The name connotes the user's ability to put the computer in their lap while they use it. ",
+                            ImageUrl = "",
+                            Price = 40000.0,
+                            Title = "Lenovo 4545"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Brand = "HP",
+                            CategoryId = 1,
+                            Description = "Laptops are designed to be portable computers. They are smaller and lighter than desktops. The name connotes the user's ability to put the computer in their lap while they use it. ",
+                            ImageUrl = "0eb61fcd-0d70-42a9-baca-b8be1ae5a3e7.jpeg",
+                            Price = 66000.0,
+                            Title = "HP 100s"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Brand = "HP",
+                            CategoryId = 1,
+                            Description = "Laptops are designed to be portable computers. They are smaller and lighter than desktops. The name connotes the user's ability to put the computer in their lap while they use it. ",
+                            ImageUrl = "6fca5a19-6989-457d-94bd-8936dd45c1b7.jpeg",
+                            Price = 40000.0,
+                            Title = "HP sd555"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Brand = "Canon",
+                            CategoryId = 3,
+                            Description = "The Campaign for Real Ale (CAMRA) is an independent voluntary consumer organisation headquartered in St Albans, England, which promotes real ale, cider and perry and traditional British pubs and clubs.",
+                            ImageUrl = "97a286c0-b68f-4abd-8312-dd0ff65a7a86.jpg",
+                            Price = 80000.0,
+                            Title = "Canon 525545"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Brand = "Canon",
+                            CategoryId = 3,
+                            Description = "The Campaign for Real Ale (CAMRA) is an independent voluntary consumer organisation headquartered in St Albans, England, which promotes real ale, cider and perry and traditional British pubs and clubs.",
+                            ImageUrl = "349dfcc7-783e-495d-9521-fdbfe3c9cadc.jpg",
+                            Price = 400000.0,
+                            Title = "Canon s333"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Brand = "Suprima",
+                            CategoryId = 2,
+                            Description = "CCTV (closed-circuit television) is a TV system in which signals are not publicly distributed but are monitored, primarily for surveillance and security purposes. ",
+                            ImageUrl = "b545a9c6-3192-4e0f-a6cb-1fa2ac95925a.webp",
+                            Price = 25000.0,
+                            Title = "Suprima n33"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Brand = "Suprima",
+                            CategoryId = 2,
+                            Description = "CCTV (closed-circuit television) is a TV system in which signals are not publicly distributed but are monitored, primarily for surveillance and security purposes. ",
+                            ImageUrl = "4709384e-6e4b-441a-9735-8d3a52bcfadf.webp",
+                            Price = 23000.0,
+                            Title = "Suprima k33"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Brand = "Vivo tech",
+                            CategoryId = 2,
+                            Description = "CCTV (closed-circuit television) is a TV system in which signals are not publicly distributed but are monitored, primarily for surveillance and security purposes. ",
+                            ImageUrl = "",
+                            Price = 20000.0,
+                            Title = "Vivo 3sT"
+                        });
                 });
 
             modelBuilder.Entity("Zahidul_s_Tech_Emporium.Models.ShoppingCart", b =>

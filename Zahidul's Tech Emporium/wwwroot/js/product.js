@@ -15,7 +15,7 @@ function loadDataTable() {
         "columns": [
             { "data": "title", "width": "15%" },
             { "data": "brand", "width": "15%" },
-            { "data": "listPrice", "width": "15%" },
+            { "data": "price", "width": "15%" },
             { "data": "category.name", "width": "15%" },
             {
                 "data": "id",

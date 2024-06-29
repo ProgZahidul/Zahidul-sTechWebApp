@@ -12,8 +12,8 @@ using Zahidul_s_Tech_Emporium.DAL;
 namespace Zahidul_s_Tech_Emporium.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240622053124_addImage")]
-    partial class addImage
+    [Migration("20240628212713_addseedvalue")]
+    partial class addseedvalue
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -179,12 +179,10 @@ namespace Zahidul_s_Tech_Emporium.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -221,12 +219,10 @@ namespace Zahidul_s_Tech_Emporium.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -261,20 +257,43 @@ namespace Zahidul_s_Tech_Emporium.Migrations
                         {
                             Id = 1,
                             DisplayOrder = 1,
-                            Name = "Action"
+                            Name = "Laptop"
                         },
                         new
                         {
                             Id = 2,
                             DisplayOrder = 2,
-                            Name = "SciFi"
+                            Name = "CCTV"
                         },
                         new
                         {
                             Id = 3,
                             DisplayOrder = 3,
-                            Name = "History"
+                            Name = "Camera"
                         });
+                });
+
+            modelBuilder.Entity("Zahidul_s_Tech_Emporium.Models.Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Companies");
                 });
 
             modelBuilder.Entity("Zahidul_s_Tech_Emporium.Models.Product", b =>
@@ -297,19 +316,9 @@ namespace Zahidul_s_Tech_Emporium.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("ListPrice")
-                        .HasColumnType("float");
-
                     b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Price100")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Price50")
                         .HasColumnType("float");
 
                     b.Property<string>("Title")
@@ -321,6 +330,155 @@ namespace Zahidul_s_Tech_Emporium.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Brand = "Lenovo",
+                            CategoryId = 1,
+                            Description = "Lenovo Ideapad 3 with a 14\" FHD display, powered by an Intel Core i5-1035G1, 8GB RAM, 512GB SSD, and Windows 10. Perfect for everyday use.",
+                            ImageUrl = "\\images\\product\\5fe718e2-864e-480f-9f4b-92f36a54eda3.webp",
+                            Price = 69000.0,
+                            Title = "Lenovo Ideapad 3"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Brand = "DELL",
+                            CategoryId = 1,
+                            Description = "Portable Dell laptop with efficient performance for work and study. Compact design, lightweight, and perfect for use on the go.",
+                            ImageUrl = "\\images\\product\\533494b8-e34d-49b5-8f4e-f06a3912a369.jpeg",
+                            Price = 50000.0,
+                            Title = "Dell Inspiron 5055"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Brand = "Lenovo",
+                            CategoryId = 1,
+                            Description = "Lenovo ThinkPad T14 Gen 3, featuring a 14” WUXGA display, Intel i5-1235U, 16GB RAM, 512GB SSD, and Windows 11 Pro. Ideal for business professionals.",
+                            ImageUrl = "\\images\\product\\3d30b5dc-d3fc-4e85-8185-f8ff7d9472a8.webp",
+                            Price = 160000.0,
+                            Title = "Lenovo ThinkPad T14 Gen 3"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Brand = "Lenovo",
+                            CategoryId = 1,
+                            Description = "Lenovo laptop, designed for portability and everyday tasks. Lightweight and easy to carry, making it a great choice for students.",
+                            ImageUrl = "\\images\\product\\6f394ca7-4a38-4daa-a75f-2ca7a40c0bd4.webp",
+                            Price = 45000.0,
+                            Title = "Lenovo Slim 4544"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Brand = "Lenovo",
+                            CategoryId = 1,
+                            Description = "Affordable Lenovo laptop, perfect for basic computing needs. Compact and lightweight, suitable for students and home users.",
+                            ImageUrl = "",
+                            Price = 40000.0,
+                            Title = "Lenovo Basic 4545"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Brand = "HP",
+                            CategoryId = 1,
+                            Description = "HP 100s laptop with a sleek design, great for productivity and entertainment. Portable and equipped with essential features for everyday use.",
+                            ImageUrl = "\\images\\product\\0eb61fcd-0d70-42a9-baca-b8be1ae5a3e7.jpeg",
+                            Price = 66000.0,
+                            Title = "HP Pavilion 100s"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Brand = "HP",
+                            CategoryId = 1,
+                            Description = "Compact and lightweight HP laptop, ideal for everyday tasks and web browsing. A great companion for users on the move.",
+                            ImageUrl = "\\images\\product\\6fca5a19-6989-457d-94bd-8936dd45c1b7.jpeg",
+                            Price = 40000.0,
+                            Title = "HP Stream sd555"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Brand = "Canon",
+                            CategoryId = 3,
+                            Description = "Canon camera with advanced features, perfect for photography enthusiasts. Capture stunning images with ease.",
+                            ImageUrl = "\\images\\product\\97a286c0-b68f-4abd-8312-dd0ff65a7a86.jpg",
+                            Price = 80000.0,
+                            Title = "Canon EOS 525545"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Brand = "Canon",
+                            CategoryId = 3,
+                            Description = "High-end Canon camera designed for professional photographers. Delivers exceptional image quality and performance.",
+                            ImageUrl = "\\images\\product\\349dfcc7-783e-495d-9521-fdbfe3c9cadc.jpg",
+                            Price = 400000.0,
+                            Title = "Canon PowerShot s333"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Brand = "Suprima",
+                            CategoryId = 2,
+                            Description = "Suprima CCTV system for enhanced security. Reliable and easy to install, suitable for home and business surveillance.",
+                            ImageUrl = "\\images\\product\\b545a9c6-3192-4e0f-a6cb-1fa2ac95925a.webp",
+                            Price = 25000.0,
+                            Title = "Suprima Secure n33"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Brand = "Suprima",
+                            CategoryId = 2,
+                            Description = "Compact and efficient Suprima CCTV system for monitoring and security. Provides clear video footage for peace of mind.",
+                            ImageUrl = "\\images\\product\\4709384e-6e4b-441a-9735-8d3a52bcfadf.webp",
+                            Price = 23000.0,
+                            Title = "Suprima Vision k33"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Brand = "Vivo tech",
+                            CategoryId = 2,
+                            Description = "Vivo 3sT CCTV camera, designed for effective surveillance. Easy to install and operate, ideal for home security.",
+                            ImageUrl = "",
+                            Price = 20000.0,
+                            Title = "VivoTech Guardian 3sT"
+                        });
+                });
+
+            modelBuilder.Entity("Zahidul_s_Tech_Emporium.Models.ShoppingCart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ShoppingCarts");
                 });
 
             modelBuilder.Entity("Zahidul_s_Tech_Emporium.Models.ApplicationUser", b =>
@@ -333,12 +491,17 @@ namespace Zahidul_s_Tech_Emporium.Migrations
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("CompanyId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PostalCode")
                         .HasColumnType("nvarchar(max)");
+
+                    b.HasIndex("CompanyId");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
@@ -403,6 +566,34 @@ namespace Zahidul_s_Tech_Emporium.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Zahidul_s_Tech_Emporium.Models.ShoppingCart", b =>
+                {
+                    b.HasOne("Zahidul_s_Tech_Emporium.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Zahidul_s_Tech_Emporium.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Zahidul_s_Tech_Emporium.Models.ApplicationUser", b =>
+                {
+                    b.HasOne("Zahidul_s_Tech_Emporium.Models.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId");
+
+                    b.Navigation("Company");
                 });
 #pragma warning restore 612, 618
         }

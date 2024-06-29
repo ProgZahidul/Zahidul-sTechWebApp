@@ -23,10 +23,7 @@ namespace Zahidul_s_Tech_Emporium.Repository
                 objFormDb.Title = obj.Title;
                 objFormDb.Description = obj.Description;
                 objFormDb.Brand = obj.Brand;
-                objFormDb.ListPrice = obj.ListPrice;
                 objFormDb.Price = obj.Price;
-                objFormDb.Price50 = obj.Price50;
-                objFormDb.Price100 = obj.Price100;
                 objFormDb.CategoryId = obj.CategoryId;
 
                 if (obj.ImageUrl != null)

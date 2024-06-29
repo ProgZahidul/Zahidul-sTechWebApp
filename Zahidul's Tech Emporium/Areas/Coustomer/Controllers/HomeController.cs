@@ -24,8 +24,14 @@ namespace Zahidul_s_Tech_Emporium.Areas.Coustomer.Controllers
 
         public async Task<IActionResult> Details(int productId)
         {
-            Product product = (await _unitOfWork.Product.GetAsync(u=>u.Id== productId, includeProperties: "Category"));
-            return View(product);
+            ShoppingCart cart = new() {
+
+                Product = await _unitOfWork.Product.GetAsync(u => u.Id == productId, includeProperties: "Category"),
+                Count = 1,
+                ProductId = productId
+        };
+            
+            return View(cart);
         }
 
         public IActionResult Privacy()

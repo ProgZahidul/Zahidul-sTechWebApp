@@ -101,7 +101,7 @@ namespace Zahidul_s_Tech_Emporium.Areas.Admin.Controllers
                 }
                 
                 await _unitOfWork.SaveAsync();
-                TempData["success"] = "Product created successfully";
+                TempData["success"] = "Product created/updated successfully";
                 return RedirectToAction("Index");
             }
             else
