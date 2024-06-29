@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Claims;
 using Zahidul_s_Tech_Emporium.Models;
 using Zahidul_s_Tech_Emporium.Repository.IRepository;
 
@@ -32,6 +34,19 @@ namespace Zahidul_s_Tech_Emporium.Areas.Coustomer.Controllers
         };
             
             return View(cart);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Details(ShoppingCart shoppingCart)
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+            shoppingCart.ApplicationUserId = userId;
+            await _unitOfWork.ShoppingCart.AddAsync(shoppingCart);
+            await _unitOfWork.SaveAsync();
+
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Privacy()
