@@ -53,7 +53,7 @@ Zahidul-sTechWebApp is a comprehensive e-commerce web application built using AS
    dotnet run
    ```
 
-4. Open your browser and navigate to `https://localhost:5001`.
+4. Open your browser and navigate to `https://localhost:7112`.
 
 ### Project Structure
 
