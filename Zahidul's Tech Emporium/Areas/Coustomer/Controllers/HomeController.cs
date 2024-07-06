@@ -43,7 +43,22 @@ namespace Zahidul_s_Tech_Emporium.Areas.Coustomer.Controllers
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
             shoppingCart.ApplicationUserId = userId;
-            await _unitOfWork.ShoppingCart.AddAsync(shoppingCart);
+
+            ShoppingCart cartFromDb = await _unitOfWork.ShoppingCart.GetAsync(u => u.ApplicationUserId == userId && u.ProductId == shoppingCart.ProductId);
+
+            if (cartFromDb != null)
+            {
+                //if shopping cart is exixt
+                cartFromDb.Count += shoppingCart.Count;
+                await _unitOfWork.ShoppingCart.UpdateAsync(cartFromDb);
+            }
+            else
+            {
+                //if shopping cart is not exixt
+                await _unitOfWork.ShoppingCart.AddAsync(shoppingCart);
+            }
+
+            TempData["success"] = "Cart Updated Successfuly";
             await _unitOfWork.SaveAsync();
 
             return RedirectToAction(nameof(Index));
