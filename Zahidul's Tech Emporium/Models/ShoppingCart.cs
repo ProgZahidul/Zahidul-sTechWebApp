@@ -18,6 +18,8 @@ namespace Zahidul_s_Tech_Emporium.Models
         [ForeignKey("ApplicationUserId")]
         [ValidateNever]
         public ApplicationUser ApplicationUser { get; set; }
+        [NotMapped]
+        public double Price { get; set; }
 
     }
 }

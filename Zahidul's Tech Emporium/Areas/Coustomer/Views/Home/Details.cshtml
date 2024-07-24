@@ -46,6 +46,7 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text bg-primary text-white border-0" id="inputGroup-sizing-default">Count</span>
                                     <input asp-for="Count" type="number" value="1" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    <span asp-validation-for="@Model.Count" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
