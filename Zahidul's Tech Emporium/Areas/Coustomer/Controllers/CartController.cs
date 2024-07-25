@@ -77,7 +77,7 @@ namespace Zahidul_s_Tech_Emporium.Areas.Coustomer.Controllers
             ShoppingCartVM.OrderHeader.OrderDate = System.DateTime.Now;
             ShoppingCartVM.OrderHeader.ApplicationUserId = userId;
 
-            ShoppingCartVM.OrderHeader.ApplicationUser = await _unitOfWork.ApplicationUser.GetAsync(u => u.Id == userId);
+           ApplicationUser applicationUser = await _unitOfWork.ApplicationUser.GetAsync(u => u.Id == userId);
            
             foreach (var cart in ShoppingCartVM.shoppingCarts)
             {
@@ -85,7 +85,7 @@ namespace Zahidul_s_Tech_Emporium.Areas.Coustomer.Controllers
                 ShoppingCartVM.OrderHeader.OrderTotal += (cart.Price * cart.Count);
             }
 
-            if (ShoppingCartVM.OrderHeader.ApplicationUser.CompanyId.GetValueOrDefault() == 0)
+            if (applicationUser.CompanyId.GetValueOrDefault() == 0)
             {
                 //regular coustomer accound and need to capture payment
                 ShoppingCartVM.OrderHeader.PaymentStatus = SD.PymentStatusPending;
@@ -115,10 +115,21 @@ namespace Zahidul_s_Tech_Emporium.Areas.Coustomer.Controllers
                 await _unitOfWork.SaveAsync();
             }
 
-            return View(ShoppingCartVM);
+            if (applicationUser.CompanyId.GetValueOrDefault() == 0)
+            {
+                //it is a regular coustomer account and we need to capture payment
+                //stripe logic
+
+            }
+
+
+            return RedirectToAction(nameof(OrderConfirmation),new {id=ShoppingCartVM.OrderHeader.Id});
         }
 
-
+        public IActionResult OrderConfirmation(int id)
+        {
+            return View(id);
+        }
 
 
 
