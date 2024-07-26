@@ -22,6 +22,8 @@ namespace Zahidul_s_Tech_Emporium.Models
 
         public DateTime PaymentDate { get; set; }
         public DateOnly PaymentDueDate { get; set; }
+
+        public string? SessionId { get; set; }
         public string? PayemntIntentId { get; set; }
 
         [Required]
